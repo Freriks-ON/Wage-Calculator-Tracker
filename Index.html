@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<title></title>
+		<meta charset="utf-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!--        JQuery      -->
+        <script src="js/lib/jquery-2.1.4.js"></script>
+        <!--        JQeuery Mobile      -->
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <!--        Style sheet         -->
+        <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+        <script type="text/javascript" src="js/Global.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/Layout.css">
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/Validation.js"></script>
+        <script type="text/javascript" src="js/Database.js"></script>
+        <script type="text/javascript" src="js/DAl.js"></script>
+        <link rel="icon" href="image/EPS.png">
+</head>
+<body>
+
+<!------------------------------ HOME PAGE------------------------------------>
+
+<div id="Home" data-role="page">
+	<div id="mySidenav" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu();  updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section data-role="content" data-position="fixed" >
+		<img style="width:98%; height:auto; margin-top: 2em;" src="image/EPS.png" >
+		<h1 style="margin-bottom:0px;">Info</h1>
+		<div style="width:100% height:2px; border:1px solid grey;"></div>
+		<p> The purpose of this app is to add companys
+			so that<br> you can track hours worked at specified
+		pay amounts <br>and keep track of them.</p>
+		<br>
+		<h2>Things to be Added:</h2>
+		<div style="width:100% height:2px; border:1px solid grey;"></div>
+		<ul style="margin-bottom: 5em;">
+			<li>Search Function</li>
+			<li>Sort Function</li>
+			<li>Mass Delete</li>
+			<li>Dark Mode</li>
+
+		</ul>
+
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+<!---------------------------- ABOUT PAGE------------------------------------>
+<div id="About" data-role="page">
+	<div id="mySidenavAbout" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu();  updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" onclick="OpenMenu();" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section data-role="content" data-position="fixed" >
+		<h1 style="margin-bottom: .5em; margin-top: 1em;">Created By: Chris Freriks</h1>
+		<img style="width:98%; height:auto; margin-bottom: 5px;" src="image/ME.jpg">
+		<h2 style="margin-bottom:1px;"><i>Info</i></h2>
+		<div style="width:100% height:2px; border:1px solid grey;"></div>
+		<p>This app was created for my final project in<br>
+			Mobile Applications Development 1</p>
+			<ul style="list-style-type: none; margin-bottom: 5em;" > 
+				<li><b>Name:</b> Chris Freriks</li>
+				<li><b>Version:</b> 3.2</li>
+				<li><b>Student ID:</b> 8567687</li>
+				<li><b><a href="mailto:CFreriks7687@Conestogac.on.ca">Contact Me!</a></b></li>
+			</ul>
+
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+
+<!---------------------------- CALCULATE DAILY PAY PAGE--------------------------->
+
+<div id="CalculateDailyPay" data-role="page">
+	<div id="mySidenavDaily" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu(); " href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu(); updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" onclick="OpenMenu();" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section data-role="content">
+		<form id="frmCalculateDaily" name="frmAddReview" data-ajax="false">
+			<label for="CompanyName" >Company Name:</label>
+			<select data-placeholder="true"  id="CompanyNameDropDown">
+				
+			</select>
+			<label for="DateWorked">Date Worked:</label>
+			<input type="Date" id="DateWorkeds" name="DateWorked">
+			<label for="Hours">Hours Worked:</label>
+			<input type="number" class="required" id="Hours" min="1" max="24" name="Hours">
+			<label for="PayRate">Pay Rate:</label>
+			<input type="number" class="required" min="0" default="14.25" step=".01" id="PayRate" name="PayRate">
+			<button type="button" id="Calculate"  class="Color btn-Blue">Calculate</button>
+			<input type="reset" id="reset" name="reset" value="Reset">
+
+			<div id="Output">
+			
+			
+			</div>
+
+		</form>
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+
+<!---------------------------- ADD COMPANY PAY PAGE ------------------------->
+
+<div id="AddNewCompany" data-role="page">
+	<div id="mySidenavWeekly" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu();  updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" onclick="OpenMenu();" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section data-role="content" data-position="fixed" >
+		<form id="AddCompanyFRM">
+			<label for="CompanyName">Company Name</label>
+			<input type="text" name="CompanyName" id="CompanyNames">
+			<input type="button" id="CompanyNameSubmit" name="Submit" value="Submit">
+		</form>
+
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+
+<!---------------------------- DISPLAY ALL PAY PAGE--------------------------->
+
+<div id="DisplayPays" data-role="page">
+	<div id="mySidenavDisplay" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu(); updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" onclick="OpenMenu();" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section id="test" data-role="content" data-position="fixed" >
+
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+
+<!---------------------------- REMOVE PAY PAGE ---------------------------------->
+
+<div id="RemovePay" data-role="page">
+	<div id="mySidenavRemove" class="sidenav">
+  			<a href="javascript:void(0)" class="closebtn" onclick="CloseMenu()">&times;</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#Home">Home</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#About">About</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#CalculateDailyPay">Calculate Daily Pay</a>
+  			<a id="width-fixed" onclick="CloseMenu();" href="#AddNewCompany">Add New Company</a>
+  			<a id="displaypay" onclick="CloseMenu();  updatepays();" href="#DisplayPays">Display Pays</a>
+	</div>
+	<header data-role="header" id="Headers" class="ui header ui-header-fixed slidedown ui-header" role="banner">
+			<div id="Menu">
+				<a id="aMenu" onclick="OpenMenu();" data-role="button" data-icon="bars"></a>
+			</div>
+			<h1 style="color: black; margin-top:2%;">Weekly Pay Manager</h1>
+	</header>
+	<section data-role="content" data-position="fixed" >
+		<form>
+			<span id="message" style="position: relative; float: left;"></span>
+			<br>
+			<br>
+			<button id="AcceptDelete"  style="width:47%; position: relative; color: white; background-color: blue; float:left;">Accept</button>
+			<button id="CancelDelete" style="width:47%; position: relative; color: white; background-color: lightgrey; float: right; border:1px solid darkgrey">Cancel</button>
+		</form>
+	</section>
+    <footer data-role="footer" data-theme="b" class="ui-footer-fixed MyColor" >
+          <h4>&copy; Chris Freriks</h4>
+    </footer>
+    </div>
+</div>
+</body>
+</html>
